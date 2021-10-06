@@ -11,3 +11,4 @@ runs:
       with:
         toolchain: ${{ inputs.toolchain }}
     - run: cargo test
+      shell: bash
