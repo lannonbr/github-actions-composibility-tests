@@ -3,4 +3,4 @@ on:
     branches: [main]
 jobs:
   test:
-    uses: ./.github/workflows/reusable-workflow.yml@main
+    uses: lannonbr/github-actions-composibility-tests/.github/workflows/reusable-workflow.yml@main
