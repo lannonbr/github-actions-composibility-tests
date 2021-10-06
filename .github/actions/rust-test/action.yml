@@ -1,0 +1,13 @@
+name: "Rust Test"
+inputs:
+  toolchain:
+    description: Rust Toolchain
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Set up toolchain ${{ inputs.toolchain }}
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: ${{ inputs.toolchain }}
+    - run: cargo test

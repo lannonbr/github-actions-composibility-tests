@@ -1,0 +1,15 @@
+on:
+  push:
+    branches: [main]
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+        toolchain: [stable, nightly]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/rust-test
+        with:
+          toolchain: ${{ matrix.toolchain }}
