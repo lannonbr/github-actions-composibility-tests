@@ -1,17 +1,17 @@
-# on:
-#   push:
-#     branches: [main]
-# jobs:
-#   test:
-#     strategy:
-#       matrix:
-#         os: [windows-latest, ubuntu-latest, macos-latest]
-#         toolchain: [stable, nightly]
-#     runs-on: ${{ matrix.os }}
-#     steps:
-#       - uses: actions/checkout@v2
-#       - name: Set up toolchain ${{ matrix.toolchain }} on ${{ matrix.os }}
-#         uses: actions-rs/toolchain@v1
-#         with:
-#           toolchain: ${{ matrix.toolchain }}
-#       - run: cargo test
+on:
+  push:
+    branches: [main]
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+        toolchain: [stable, nightly]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up toolchain ${{ matrix.toolchain }} on ${{ matrix.os }}
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: ${{ matrix.toolchain }}
+      - run: cargo test
